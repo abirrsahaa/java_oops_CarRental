@@ -1,46 +1,46 @@
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.*;
 public class Customer {
-    private  String customerID;
-    private  String name;
-    private  List<Car> rentedCars; //need to know its use case
+    private String customerId;
+    private String name;
+    private List<Car>rentedCars;
 
-    Customer(String customerID, String name) {
-        this.customerID = customerID;
+    Customer(String customerId, String name) {
+        this.customerId = customerId;
         this.name = name;
         this.rentedCars = new ArrayList<Car>();
-    };
-
-
-//    getters and setters for each attribute
-
-    public String getCustomerID(){
-        return  this.customerID;
+    }
+    // setters
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setRentedCars(List<Car> rentedCars) {
+        this.rentedCars = rentedCars;
     }
 
-    public void setCustomerID(String customerID){
-        this.customerID=customerID;
+    //getters
+    public String getCustomerId() {
+        return customerId;
     }
-
-    public String getName(){
-        return this.name;
+    public String getName() {
+        return name;
     }
-    public void setName(String name){
-        this.name=name;
+    public List<Car> getRentedCars() {
+        return rentedCars;
     }
-
     public Car rentCar(Car car){
         if(car.getAvailable()){
+            rentedCars.add(car);
             car.setAvailable(false);
-            rentedCars.add(car);  //updating the list
             return car;
-
         }else{
             System.out.println("Car Not Available");
         }
         return null;
     }
+
     public Car returnCar(Car car){
 //        return rentCar(car);
         if(rentCar(car)==null){
@@ -51,7 +51,7 @@ public class Customer {
     }//having doubt in this problem statement
     @Override
     public String toString(){
-        return "Customer ID: "+this.customerID+" Name: "+this.name;
+        return "Customer ID: "+this.customerId+" Name: "+this.name;
     }
 
 }

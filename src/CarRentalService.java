@@ -13,10 +13,8 @@ public class CarRentalService {
     }
 
 
-
-
     public List<Car> allCars(){
-        return  cars;
+        return  this.cars;
     }
 
 
@@ -49,20 +47,43 @@ public class CarRentalService {
 
     public Car findCarByMakeModel(String make,String model){
         for(Car car:cars){
-            if(car.getMake().equals(make) && car.getModel().equals(model))return car;
+            if(car.getMakeId().equals(make) && car.getModel().equals(model))return car;
         }
         System.out.println("Car Not Available");
         return null;
     }
 
-    public Customer findCustomerByID(String customerID,Customer abir){
-//        should i use include or any way to optimize it .?
+    public Customer findCustomerByID(String customerID){
+
         for(Customer customer:customers){
-            if(customer.getCustomerID().equals(customerID))return customer;
+            if(customer.getCustomerId().equals(customerID))return customer;
         }
         System.out.println("Customer Not Available");
         return null;
     }
-
+    public void printCarsByModel(String model) {
+        boolean found = false;
+        for (Car car : cars) {
+            if (car.getModel().equals(model)) {
+                System.out.println(car);  // Print car details
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No cars found with the model: " + model);
+        }
+    }
+    public void printCarsByModelAndYear(String model, int year) {
+        boolean found = false;
+        for (Car car : cars) {
+            if (car.getModel().equals(model) && car.getYear() == year) {
+                System.out.println(car);  // Print car details
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No cars found with the model: " + model + " and year: " + year);
+        }
+    }
 
 }
