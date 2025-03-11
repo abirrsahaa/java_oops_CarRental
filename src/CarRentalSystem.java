@@ -44,7 +44,7 @@ public class CarRentalSystem {
         carRentalService.addCar(car1);
         carRentalService.addCar(car2);
         carRentalService.addCar(car3);
-        carRentalService.addCar(car4);
+//        carRentalService.addCar(car4);
 
 //        Scanner input = new Scanner(System.in);
         int choice=input.nextInt();
