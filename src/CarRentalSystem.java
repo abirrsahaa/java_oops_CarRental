@@ -29,7 +29,7 @@ public class CarRentalSystem {
         Car car2=new Car("2","mercedes","benz",2000,true);
         Car car3=new Car("3","honda","ciaz",1990,true);
 
-        Car car4=new Car("4","bmw","classic",1998,false);
+
 
 
         Customer customer1=new Customer("wcs174","Abir");
